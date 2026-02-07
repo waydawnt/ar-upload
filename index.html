@@ -13,7 +13,12 @@ body { margin:0; overflow:hidden; }
 
 <body>
 
-<a-scene embedded arjs>
+<a-scene
+  embedded
+  arjs="sourceType: webcam;
+        videoTexture: true;
+        debugUIEnabled: false;
+        facingMode: environment;">
 
 <a-marker preset="hiro">
 
