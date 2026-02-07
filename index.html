@@ -6,15 +6,6 @@
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-<script>
-navigator.mediaDevices.enumerateDevices().then(devices => {
-  devices.forEach(device => {
-    console.log(device.kind, device.label, device.deviceId);
-  });
-});
-</script>
-
-
 <style>
 body { margin:0; overflow:hidden; }
 </style>
@@ -22,22 +13,23 @@ body { margin:0; overflow:hidden; }
 
 <body>
 
-<a-scene
-  embedded
-  arjs="sourceType: webcam;
-        videoTexture: true;
-        debugUIEnabled: false;
-        facingMode: environment;">
+<a-scene embedded arjs>
 
+  <!-- preload model -->
   <a-assets timeout="10000">
-    <a-asset-item id="myModel" src="./model.glb"></a-asset-item>
+    <a-asset-item id="model" src="./model.glb"></a-asset-item>
   </a-assets>
 
+  <!-- marker -->
   <a-marker preset="hiro">
 
+    <!-- test cube -->
+    <a-box color="red" depth="0.5"></a-box>
+
+    <!-- model -->
     <a-entity
-      gltf-model="#myModel"
-      scale="0.5 0.5 0.5"
+      gltf-model="#model"
+      scale="1 1 1"
       position="0 0 0">
     </a-entity>
 
@@ -46,7 +38,6 @@ body { margin:0; overflow:hidden; }
   <a-entity camera></a-entity>
 
 </a-scene>
-
 
 </body>
 </html>
