@@ -29,19 +29,24 @@ body { margin:0; overflow:hidden; }
         debugUIEnabled: false;
         facingMode: environment;">
 
-<a-marker preset="hiro">
+  <a-assets timeout="10000">
+    <a-asset-item id="myModel" src="./model.glb"></a-asset-item>
+  </a-assets>
 
-<a-entity
-    gltf-model="model.glb"
-    scale="0.5 0.5 0.5"
-    position="0 0 0">
-</a-entity>
+  <a-marker preset="hiro">
 
-</a-marker>
+    <a-entity
+      gltf-model="#myModel"
+      scale="0.5 0.5 0.5"
+      position="0 0 0">
+    </a-entity>
 
-<a-entity camera></a-entity>
+  </a-marker>
+
+  <a-entity camera></a-entity>
 
 </a-scene>
+
 
 </body>
 </html>
